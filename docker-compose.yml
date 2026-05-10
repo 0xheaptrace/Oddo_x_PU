@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: traveloop-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: traveloop
+      POSTGRES_PASSWORD: traveloop
+      POSTGRES_DB: traveloop
+    ports:
+      - "5432:5432"
+    volumes:
+      - traveloop_pg:/var/lib/postgresql/data
+
+volumes:
+  traveloop_pg:
